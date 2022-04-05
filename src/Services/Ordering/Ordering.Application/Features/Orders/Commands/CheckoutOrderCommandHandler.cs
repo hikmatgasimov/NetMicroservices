@@ -43,18 +43,12 @@ namespace Ordering.Application.Features.Orders.Commands
         {
             var email = new Email()
             {
-                To = "ezozkme@gmail.com",
+                To = "gasimov@gmail.com",
                 Body = $"Order was created.",
                 Subject = "Order was created"
             };
-            try
-            {
-                await _emailService.SendEmail(email);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Order {order.Id} failed due to an error with the mail service: {ex.Message}");
-            }
+
+            await _emailService.SendEmail(email);        
         }
     }
 }
